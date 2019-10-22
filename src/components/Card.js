@@ -38,23 +38,23 @@ class Card extends Component {
                         <p className="close_detail right-align" count={1} onClick={this.openDetails}>X</p>
                     </div>
                     <div className="container_img">
-                        <img src={url_photo + data_selected.name + extension_photo} alt="Avatar" className="padding_img" />
+                        <img src={url_photo + data_selected.name + extension_photo} alt="Avatar" className="padding_5px" />
                     </div>
                 </div>
                 <div className="container_title">
-                    <h4 className="title_card">{data_selected.name}</h4>
+                    <h4 className="title_card_detail">{data_selected.name}</h4>
                 </div>
                 <div className="container_details left-align">
-                    <div>
+                    <div className="padding_5px">
                         <b>ID: </b> {data_selected.id}
                     </div>
-                    <div>
+                    <div className="padding_5px">
                         <b>Type: </b> {data_selected.types[0].type.name}
                     </div>
-                    <div>
+                    <div className="padding_5px">
                         <b>Height: </b> {data_selected.height}
                     </div>
-                    <div>
+                    <div className="padding_5px">
                         <b>Habilities: </b>
                         <ul className="nomargin">
                             {this.createHabilities(data_selected.abilities)}
@@ -86,12 +86,12 @@ class Card extends Component {
     //----------------------------------------------------------------------
     render() {
         return (
-            <React.Fragment>
+            <div className="container" id="container_card">
                 {this.props.show_details ?
                     this.createCardDetails(this.props.data_selected)
                     :
                     this.createCard(this.props.data)}
-            </React.Fragment>
+            </div>
         );
     }
 

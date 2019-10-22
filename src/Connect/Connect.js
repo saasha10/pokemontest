@@ -6,7 +6,6 @@ class Connect {
         let data= [];
         axios.get(url)
             .then(res => {
-                console.log(res);
                 data = res.data;
                 callback(data);
             })

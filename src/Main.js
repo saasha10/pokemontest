@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Title from './components/Title';
 import Card from './components/Card';
 //----------------------------------------------------------------------
-import Connect from './Connect/Connect';
+import Connect from './connect/Connect';
 //----------------------------------------------------------------------
 const url = "https://pokeapi.co/api/v2/pokemon";
 let connect = new Connect();
@@ -28,9 +28,9 @@ class Main extends Component {
     //----------------------------------------------------------------------
     openDetails = (key) => {
         let pokemons = this.state.data;
-        let url_details = "https://pokeapi.co/api/v2/pokemon/"+pokemons[key].name;
+        let url_details = "https://pokeapi.co/api/v2/pokemon/" + pokemons[key].name;
 
-        connect.getData(url_details, (data_selected)=>{
+        connect.getData(url_details, (data_selected) => {
             this.setState(prevState => ({
                 show_details: !prevState.show_details,
                 data_selected: data_selected
@@ -40,19 +40,15 @@ class Main extends Component {
     //----------------------------------------------------------------------
     render() {
         return (
-            <React.Fragment>
-                <div className="center-align flex-wrap">
-                    <Title/>
-                    <div className="container" id="container_card">
-                        <Card
-                            data={this.state.data}
-                            openDetails={this.openDetails}
-                            data_selected={this.state.data_selected}
-                            show_details={this.state.show_details}
-                        />
-                    </div>
-                </div>
-            </React.Fragment>
+            <div className="center-align flex-wrap">
+                <Title />
+                <Card
+                    data={this.state.data}
+                    openDetails={this.openDetails}
+                    data_selected={this.state.data_selected}
+                    show_details={this.state.show_details}
+                />
+            </div>
         );
     }
 }
